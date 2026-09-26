@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Image Compression App — Design</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#eef3fa;color:#17263c;font-family:Arial,sans-serif;line-height:1.7}main{max-width:1160px;margin:auto;padding:52px 28px 64px}.eyebrow{color:#285ac0;font-size:12px;font-weight:bold;letter-spacing:1.7px}h1{font-size:38px;line-height:1.2;margin:14px 0}h2{font-size:22px;margin:0 0 10px}p{margin:10px 0 18px}.intro{font-size:18px;max-width:760px;color:#4a576b}figure{margin:32px 0}img{display:block;width:100%;border:1px solid #dbe3ee;border-radius:12px;box-shadow:0 8px 24px #2339580b}figcaption{font-size:13px;color:#586779;margin-top:10px}.description{background:white;border:1px solid #dbe3ee;border-radius:12px;padding:28px 32px}.description p{max-width:930px}.button{display:inline-block;background:#205bd7;color:white;padding:10px 20px;text-decoration:none;border-radius:7px;font-weight:bold;margin-top:10px}.button:hover{background:#1747ad}a{color:#205bd7}footer{font-size:13px;color:#586779;margin-top:24px}@media(max-width:600px){main{padding:28px 18px}h1{font-size:30px}.description{padding:22px}}
+</style>
+</head>
+<body>
+<main>
+<div class="eyebrow">SDS365 / HOMEWORK 2</div>
+<h1>Image Compression App</h1>
+<p class="intro">I wanted a simple way to upload an image, change the number of components, and see how the result compares with the original.</p>
+<a class="button" href="https://suryavijay.shinyapps.io/sds365-image-compression/">Open the Shiny app</a>
+<figure>
+<a href="mockup.png"><img src="mockup.png" alt="App mockup with an upload button and k slider on the left, and the original puppy image and its PCA approximation side by side on the right. Error values appear below the images."></a>
+<figcaption>App mockup showing the puppy example at k = 10. Click the image to see it at full size.</figcaption>
+</figure>
+<section class="description">
+<h2>How I would use it</h2>
+<p>I would put the upload button at the top left so it is easy to find. Someone could choose their own image using the Browse button. A sample image would already be there when the app opens, so they could try the controls right away.</p>
+<p>The slider would go right below the upload button. It would let people choose a whole-number value of k, from 1 to the smaller image dimension. Moving it to the left would keep fewer components, and moving it to the right would keep more detail. The compressed image would update automatically, without needing another button.</p>
+<p>I would put the original on the left and the compressed version on the right, with both shown at the same scale. That would make it easier to spot which details disappear at a smaller k. The current k and the error values would appear below the images. On a small screen, the controls and images would stack vertically.</p>
+<h2>About the images</h2>
+<p>The app would accept common image formats such as PNG and JPG and show them in grayscale, like the images used in the homework. Large images would be resized to fit within 600 by 600 pixels before doing PCA so the app stays responsive. Both previews and the error calculation would use that same grayscale image. The maximum upload size would be 15 MB.</p>
+<p>The relative error would show the Frobenius error divided by the norm of the original image, written as a percentage. A smaller error means the approximation is closer to the original. I would use the previews along with the error to decide when the image looks good enough.</p>
+</section>
+<footer>Design mockup and description · SDS365 Homework 2</footer>
+</main>
+</body>
+</html>
